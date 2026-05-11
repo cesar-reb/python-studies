@@ -15,7 +15,7 @@ def extract_text_easyocr(image_path: str, reader: easyocr.Reader):
 
 def evaluate_model(model_path, image_folder):
     nlp = spacy.load(model_path)
-    reader = easyocr.Reader(['pt'])
+    reader = easyocr.Reader(['pt'], gpu=False)
     image_files = [f for f in os.listdir(image_folder) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
 
     for image_name in image_files:
